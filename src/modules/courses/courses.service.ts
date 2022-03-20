@@ -72,7 +72,8 @@ export class CoursesService {
             mockImage: Random.image('300x168', '#50B347', '#FFF', 'Mock.js'),
             'info|+1': courseInfoList,
             totalTime: '@time', //总时长
-            studyTotal: '@integer(0, 10000)', // 在学人数
+            studyTotal: '@integer(50, 1000)',
+            studyTotalFloat: '@float(0, 5, 0, 1)', // 在学人数
             commTotal: '@integer(0, 600)', // 好评数
             browserCount: '@integer(0, 10000)',
             'isFree|1': isFreeCourse, //是否免费
