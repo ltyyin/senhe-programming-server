@@ -15,9 +15,9 @@ export class CoursesService {
     return await mock({
       [data]: [
         {
-          'id|+1': 1,
+          id: '@id',
           'imageUrl|+1': localBannerList,
-          advertUrl: '/pages/course/course-details?id=@id',
+          advertUrl: '/pages/course/details?id=@id',
         },
       ],
     });
@@ -50,14 +50,14 @@ export class CoursesService {
   public async getRecommend(count: string, isFree: number = 2) {
     let records = `records|${count}`;
     let isFreeCourse: number | number[] = [0, 1];
-
     // 注意：0收费，1免费
     switch (isFree) {
       case 0:
-        isFreeCourse = 0;
+        isFreeCourse = [0];
         break;
       case 1:
-        isFreeCourse = 1;
+        isFreeCourse = [1];
+        break;
     }
 
     return await mock({
@@ -66,7 +66,9 @@ export class CoursesService {
         'mainCover|1': mainCovers,
         [records]: [
           {
-            'id|+1': 1,
+            id: function () {
+              return mock('@id');
+            },
             userId: mock('@id()'),
             'nickName|1': ['@cname', 'tyyin'],
             mockImage: Random.image('300x168', '#50B347', '#FFF', 'Mock.js'),
@@ -77,8 +79,12 @@ export class CoursesService {
             commTotal: '@integer(0, 600)', // 好评数
             browserCount: '@integer(0, 10000)',
             'isFree|1': isFreeCourse, //是否免费
-            'priceOriginal|310-1000': 1, //原价, 501到800之间随机数，小数点2位
-            'priceDiscount|60-300': 1, //优惠价
+            priceOriginal: function () {
+              return mock('@integer(350, 700)') + '.98';
+            }, //原价, 501到800之间随机数，小数点2位
+            priceDiscount: function () {
+              return mock('@integer(60, 300)') + '.98';
+            }, //优惠价
           },
         ],
       },

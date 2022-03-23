@@ -25,7 +25,7 @@ export class CategoriesService {
       let res = mock({
         id: mock('@id'),
         name: category[i],
-        'labelList|12': [
+        'labelList|1-12': [
           {
             id: mock('@id'),
             'tag|1': categoryList,
