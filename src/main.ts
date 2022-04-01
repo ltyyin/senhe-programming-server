@@ -1,18 +1,26 @@
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { NestExpressApplication } from '@nestjs/platform-express';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import { join } from 'path';
 import { AppModule } from './app.module';
 
 const logger = new Logger('main.ts');
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   // 开启全局验证管道
   app.useGlobalPipes(new ValidationPipe());
 
   // 开启 CORS
   app.enableCors();
+
+  // 开启静态文件托管
+  // 第一个参数为服务器的静态地址，第二个参数为请求url的开头路径
+  app.useStaticAssets(join(__dirname, '..', 'assets', 'images'), {
+    prefix: '/images',
+  });
 
   // 配置 swagger
   const config = new DocumentBuilder()

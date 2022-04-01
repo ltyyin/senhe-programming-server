@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { CoursesModule } from './modules/courses/courses.module';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { SearchModule } from './modules/search/search.module';
+import { CourseDetailsModule } from './modules/course-details/course-details.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { SearchModule } from './modules/search/search.module';
     CoursesModule,
     CategoriesModule,
     SearchModule,
+    CourseDetailsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

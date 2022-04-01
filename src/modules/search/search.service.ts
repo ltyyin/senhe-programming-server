@@ -56,7 +56,17 @@ export class SearchService {
               return mock('@guid');
             },
             'nickName|1': ['@cname'],
-            mockImage: Random.image('300x168', '#50B347', '#FFF', 'Mock.js'),
+            // mockImage: Random.image('300x168', '#50B347', '#FFF', 'Mock.js'),
+            'mockImage|+1': [
+              'https://atts.w3cschool.cn/attachments/cover/cover_coding_interview_data_structure_questions_camp.png?t=1609299739',
+              'https://atts.w3cschool.cn/attachments/cover/cover_coding_interview_algorithm_questions_camp.png?t=1609299470',
+              'https://atts.w3cschool.cn/attachments/cover/cover_advanced_algorithm_camp.png?t=1623935823',
+              'https://atts.w3cschool.cn/attachments/cover/cover_ecmascript6.png?t=1634192587',
+              'https://atts.w3cschool.cn/attachments/cover/cover_puybn.png?t=1634193390',
+              'https://atts.w3cschool.cn/attachments/cover/cover_tsminicourse.jpeg?t=1634191845',
+              'https://atts.w3cschool.cn/attachments/cover/cover_orbls.jpeg?t=1624339359',
+              'https://atts.w3cschool.cn/attachments/cover/cover_htmlcourse.png?t=1647503068',
+            ],
             'info|+1': courseInfoList,
             totalTime: '@time', //总时长
             studyTotal: '@integer(50, 1000)',
@@ -64,8 +74,12 @@ export class SearchService {
             commTotal: '@integer(0, 600)', // 好评数
             browserCount: '@integer(0, 10000)',
             'isFree|1': isFreeCourse, //是否免费
-            'priceOriginal|310-1000': 1, //原价, 501到800之间随机数，小数点2位
-            'priceDiscount|60-300': 1, //优惠价
+            priceOriginal: function () {
+              return mock('@integer(310, 700)') + '.98';
+            }, //原价, 501到800之间随机数，小数点2位
+            priceDiscount: function () {
+              return mock('@integer(60, 300)') + '.98';
+            }, //优惠价
           },
         ],
       },
