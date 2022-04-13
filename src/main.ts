@@ -29,11 +29,11 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/api-docs', app, document);
+  SwaggerModule.setup('/docs-api', app, document);
 
   // 监听端口号
   const PORT = process.env.SERVER_PORT;
   await app.listen(PORT);
-  logger.log(`listen in http://localhost:${PORT}/api-docs`);
+  logger.log(`listen in http://localhost:${PORT}/docs-api`);
 }
 bootstrap();

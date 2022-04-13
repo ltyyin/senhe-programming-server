@@ -56,8 +56,7 @@ export class SearchService {
               return mock('@guid');
             },
             'nickName|1': ['@cname'],
-            // mockImage: Random.image('300x168', '#50B347', '#FFF', 'Mock.js'),
-            'mockImage|+1': [
+            'coverImage|+1': [
               'https://atts.w3cschool.cn/attachments/cover/cover_coding_interview_data_structure_questions_camp.png?t=1609299739',
               'https://atts.w3cschool.cn/attachments/cover/cover_coding_interview_algorithm_questions_camp.png?t=1609299470',
               'https://atts.w3cschool.cn/attachments/cover/cover_advanced_algorithm_camp.png?t=1623935823',
@@ -138,9 +137,6 @@ export class SearchService {
         total: '@integer(50, 60)', // 总记录数
         [list]: [
           {
-            // id: function () {
-            //   return mock('@id');
-            // },
             id: '@id',
             userId: '@guid',
             nickName: '@cname',

@@ -6,6 +6,8 @@ import { CoursesModule } from './modules/courses/courses.module';
 import { CategoriesModule } from './modules/categories/categories.module';
 import { SearchModule } from './modules/search/search.module';
 import { CourseDetailsModule } from './modules/course-details/course-details.module';
+import { PaymentModule } from './modules/payment/payment.module';
+import { UsersModule } from './modules/users/users.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { CourseDetailsModule } from './modules/course-details/course-details.mod
     CategoriesModule,
     SearchModule,
     CourseDetailsModule,
+    PaymentModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

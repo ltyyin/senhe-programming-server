@@ -29,7 +29,7 @@ export class CategoriesService {
           {
             id: mock('@id'),
             'tag|1': categoryList,
-            mockImage: Random.image('64x64', '#50B347', '#FFF', 'Mock.js'),
+            coverImage: Random.image('64x64', '#50B347', '#FFF', 'Mock.js'),
           },
         ],
       });

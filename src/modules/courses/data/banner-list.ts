@@ -12,9 +12,11 @@ const bannerList: string[] = [
 //   '/static/images/IMG_0004.png',
 // ];
 
-const ip = '192.168.1.12';
+// const ip = '192.168.1.12';
+const ip = '192.168.0.100';
 
 const localBannerList: string[] = [
+  'https://7n.w3cschool.cn/attachments/knowledge/202203/83862.png',
   `http://${ip}:5000/images/IMG_0001.png`,
   `http://${ip}:5000/images/IMG_0002.png`,
   `http://${ip}:5000/images/IMG_0003.png`,

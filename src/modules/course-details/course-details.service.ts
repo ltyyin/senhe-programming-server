@@ -25,7 +25,7 @@ export class CourseDetailsService {
         totalTime: '@time', //总时长
         studyTotal: '@integer(100, 700)', // 在学人数
         'goodRate|1': [4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 5.0], //好评分数
-        'mainImage|1': [
+        'coverImage|1': [
           'https://7n.w3cschool.cn/attachments/image/201910/big_67708_1378947.jpg?t=1571292388',
           'https://atts.w3cschool.cn/attachments/cover/cover_orbls.jpeg?t=1624339359',
           'https://atts.w3cschool.cn/attachments/cover/cover_puybn.png?t=1634193390',
@@ -51,6 +51,8 @@ export class CourseDetailsService {
           <p>1. 完成3单元知识点与练习；&nbsp;</p><p>2. 适合人群：具有JavaScript基础的学员；中级前端开发工程师；</p><p>3. 在课程学习中，如有任何使用上的问题，请联系客服微信号：<b>bcshi666</b></p></div>`,
         ],
         courseSummary: '@cparagraph(1, 3)',
+        nickName: '@cname',
+        studyTotalFloat: '@float(0, 5, 0, 1)', // 在学人数
       },
     });
   }
