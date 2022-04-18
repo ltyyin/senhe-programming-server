@@ -5,15 +5,8 @@ const bannerList: string[] = [
   'https://sen-he-learning-platform.oss-cn-guangzhou.aliyuncs.com/banners/IMG_0004.png?Expires=1647568169&OSSAccessKeyId=TMP.3KgykCMDSSXHHG8Th9MW98zMRUaKm9DNe6pkF7cQYLBQXoyVY5btwS9jZ5eCQUVUtxHvxHTHZf9P1cEXHeP11xHnug3UBA&Signature=KSXARzbFkJPf%2F5GQzRNuyawiRgc%3D',
 ];
 
-// const localBannerList: string[] = [
-//   '/static/images/IMG_0001.png',
-//   '/static/images/IMG_0002.png',
-//   '/static/images/IMG_0003.png',
-//   '/static/images/IMG_0004.png',
-// ];
-
 // const ip = '192.168.1.12';
-const ip = '192.168.0.100';
+const ip = '192.168.0.101';
 
 const localBannerList: string[] = [
   'https://7n.w3cschool.cn/attachments/knowledge/202203/83862.png',

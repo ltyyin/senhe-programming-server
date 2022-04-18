@@ -6,12 +6,17 @@ import { join } from 'path';
 import { AppModule } from './app.module';
 
 const logger = new Logger('main.ts');
+const PORT = process.env.SERVICE_PORT || 5000;
+const HOST = process.env.HOST || 'localhost';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
 
   // 开启全局验证管道
   app.useGlobalPipes(new ValidationPipe());
+
+  /* 开启全局路由前缀 */
+  app.setGlobalPrefix('api');
 
   // 开启 CORS
   app.enableCors();
@@ -27,13 +32,12 @@ async function bootstrap() {
     .setTitle('森和学习平台')
     .setDescription('前后端分离，为前端提供API接口')
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('/docs-api', app, document);
+  SwaggerModule.setup('/docs', app, document);
 
-  // 监听端口号
-  const PORT = process.env.SERVER_PORT;
   await app.listen(PORT);
-  logger.log(`listen in http://localhost:${PORT}/docs-api`);
+  logger.log(`listen in http://${HOST}:${PORT}/docs`);
 }
 bootstrap();

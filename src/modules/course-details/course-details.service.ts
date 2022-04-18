@@ -3,7 +3,8 @@ import { mock } from 'mockjs';
 
 @Injectable()
 export class CourseDetailsService {
-  public async getCourseDetailSummary(id: string) {
+  public async getCourseDetailSummary(id: string, free = '') {
+    const isFree = free === '' ? [0, 1] : [parseInt(free)];
     return await mock({
       data: {
         id: '@id()',
@@ -33,7 +34,7 @@ export class CourseDetailsService {
           'https://atts.w3cschool.cn/attachments/cover/cover_vuecourse.jpeg?t=1634191646',
           'https://atts.w3cschool.cn/attachments/cover/cover_tsminicourse.jpeg?t=1634191845',
         ],
-        'isFree|1': [0, 1], // 0 付费，1免费
+        'isFree|1': isFree, // 0 付费，1免费
         priceOriginal: function () {
           return mock('@integer(350, 700)') + '.98';
         }, //原价, 501到800之间随机数，小数点2位
@@ -43,12 +44,12 @@ export class CourseDetailsService {
         'sectionCount|10-100': 1,
         'dot|10-100': 1,
         'detailContent|1': [
-          '<div class="courseinfo-intro content-intro"><h3><img src="https://atts.w3cschool.cn/attachments/image/20191112/1573542277137487.png" alt="VUE微课课程介绍" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px;"><br></h3><h2>购买须知</h2><p>1. 完成6单元知识点和练习；</p><p>2. 适合人群：具有HTML、CSS、JavaScript&nbsp;基础知识的学员；</p><p>3. 在课程学习中，如有任何使用上的问题，请联系客服微信号：<b>bcshi666</b></p></div>',
-          '<div class="courseinfo-intro content-intro"><blockquote><h3><span style="font-size: 15px; font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif;">Node.js&nbsp;是一个基于 Chrome V8 引擎的&nbsp;JavaScript&nbsp;运行环境。&nbsp;Node.js&nbsp;使用了一个事件驱动、非阻塞式 I/O 的模型。Node&nbsp;是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。</span><br></h3></blockquote><p><img src="https://atts.w3cschool.cn/attachments/image/20190809/1565354498155652.png" alt="nodejs微课课程介绍" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px;"></p><h2>购买须知</h2><p>1. 完成7单元知识点和4项测验任务；</p><p>2. 适合人群：具有JavaScript&nbsp;基础知识的学员</p></div>',
-          '<div class="courseinfo-intro content-intro"><h3><img src="https://atts.w3cschool.cn/attachments/image/20191226/1577330161766305.png" alt="ECMAScript6微课-03" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px;"><br></h3><h2>购买须知</h2><p>1.&nbsp;完成4单元知识点学习与练习</p><p>2.&nbsp;适合人群：已具备JavaScript基础，已熟悉正则。</p><p>3. 在课程学习中，如有任何使用上的问题，请联系客服微信号：bcshi666</p></div>',
+          '<div class="courseinfo-intro content-intro"><h3><img src="https://atts.w3cschool.cn/attachments/image/20191112/1573542277137487.png" alt="VUE微课课程介绍" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px;"><br></h3><h2>购买须知</h2><p>1. 完成6单元知识点和练习；</p><p>2. 适合人群：具有HTML、CSS、JavaScript&nbsp;基础知识的学员；</p><p>3. 在课程学习中，如有任何使用上的问题，请联系客服。</p></div>',
+          '<div class="courseinfo-intro content-intro"><blockquote><h3><span style="font-size: 15px; font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif;">Node.js&nbsp;是一个基于 Chrome V8 引擎的&nbsp;JavaScript&nbsp;运行环境。&nbsp;Node.js&nbsp;使用了一个事件驱动、非阻塞式 I/O 的模型。Node&nbsp;是一个让 JavaScript 运行在服务端的开发平台，它让 JavaScript 成为与PHP、Python、Perl、Ruby 等服务端语言平起平坐的脚本语言。</span><br></h3></blockquote><p><img src="https://atts.w3cschool.cn/attachments/image/20190809/1565354498155652.png" alt="nodejs微课课程介绍" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px;"></p><h2>购买须知</h2><p>1. 完成7单元知识点和4项测验任务；</p><p>2. 适合人群：具有JavaScript&nbsp;基础知识的学员。</p></div>',
+          '<div class="courseinfo-intro content-intro"><h3><img src="https://atts.w3cschool.cn/attachments/image/20191226/1577330161766305.png" alt="ECMAScript6微课-03" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px;"><br></h3><h2>购买须知</h2><p>1.&nbsp;完成4单元知识点学习与练习</p><p>2.&nbsp;适合人群：已具备JavaScript基础，已熟悉正则。</p><p>3. 在课程学习中，如有任何使用上的问题，请联系客服。</p></div>',
           `<div class="courseinfo-intro content-intro"><blockquote><h3><span style="font-size: 15px; font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif;">TypeScript&nbsp;是一种由微软开发的自由和开源的编程语言。它是 JavaScript&nbsp;的一个超集，而且本质上向这个语言添加了可选的静态类型和基于类的面向对象编程。</span><br></h3></blockquote><h3><img src="https://atts.w3cschool.cn/attachments/image/20190730/1564459626814878.png" alt="TS微课课程介绍" style="font-family: -apple-system, BlinkMacSystemFont, &quot;Helvetica Neue&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Source Han Sans SC&quot;, &quot;Noto Sans CJK SC&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-size: 15px;"></h3>
           <h2>购买须知</h2>
-          <p>1. 完成3单元知识点与练习；&nbsp;</p><p>2. 适合人群：具有JavaScript基础的学员；中级前端开发工程师；</p><p>3. 在课程学习中，如有任何使用上的问题，请联系客服微信号：<b>bcshi666</b></p></div>`,
+          <p>1. 完成3单元知识点与练习；&nbsp;</p><p>2. 适合人群：具有JavaScript基础的学员；中级前端开发工程师；</p><p>3. 在课程学习中，如有任何使用上的问题，请联系客服。</p></div>`,
         ],
         courseSummary: '@cparagraph(1, 3)',
         nickName: '@cname',

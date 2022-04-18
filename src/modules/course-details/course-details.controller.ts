@@ -7,7 +7,7 @@ function timer() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve('');
-    }, 2000);
+    }, 1000);
   });
 }
 
@@ -18,9 +18,11 @@ export class CourseDetailsController {
 
   @Get()
   @ApiOperation({ summary: '获取课程详情概述' })
-  public async getCourseDetailSummary(@Query('id') id: string) {
-    const res = await this.courseDetailsService.getCourseDetailSummary(id);
-    // await timer();
+  public async getCourseDetailSummary(@Query() req) {
+    const res = await this.courseDetailsService.getCourseDetailSummary(
+      req.id,
+      req.isFree,
+    );
     return res.data;
   }
 
