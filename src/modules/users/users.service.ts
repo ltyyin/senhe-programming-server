@@ -57,7 +57,7 @@ export class UsersService {
           section: '@integer(0, 200)',
           learnedSection: '@integer(2, 30)',
           progress: '@integer(30, 60)',
-          'isFree|1': [0, 1], //是否免费
+          isFree: 1,
         },
       ],
     });

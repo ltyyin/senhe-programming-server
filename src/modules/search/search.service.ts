@@ -92,13 +92,8 @@ export class SearchService {
         total: '@integer(50, 80)', // 总记录数
         [list]: [
           {
-            //生成10条数据
-            id: function () {
-              return mock('@id');
-            },
-            userId: function () {
-              return mock('@guid');
-            },
+            id: '@id',
+            userId: '@guid',
             nickName: '@cname', // 发布者昵称
             title: '@cparagraph(1, 3)', // 标题
             summary: '@csentence(50, 100)',
@@ -113,7 +108,7 @@ export class SearchService {
             ],
             viewCount: '@integer(0, 100000)', // 浏览次数
             thumhup: '@integer(0, 100000)', // 点赞数
-            updateDate: '@datetime',
+            updateDate: Date.now(),
             praiseCount: '@integer(0, 999)',
             commentCount: '@integer(0, 300)',
             'tag|+1': [

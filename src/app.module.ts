@@ -11,6 +11,7 @@ import { UsersModule } from './modules/users/users.module';
 import { OrderModule } from './modules/order/order.module';
 import { VerifyModule } from './common/verify/verify.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { ArticlesModule } from './modules/articles/articles.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { AuthModule } from './modules/auth/auth.module';
     CourseDetailsModule,
     PaymentModule,
     OrderModule,
+    ArticlesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
