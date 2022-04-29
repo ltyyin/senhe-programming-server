@@ -14,7 +14,7 @@ export class ArticlesController {
   }
 
   @Get('comment')
-  @ApiOperation({ summary: '获取文章详情' })
+  @ApiOperation({ summary: '获取文章评论' })
   public getArticleCommentById() {
     return this.articlesService.getArticleCommentById().data;
   }

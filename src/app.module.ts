@@ -12,6 +12,7 @@ import { OrderModule } from './modules/order/order.module';
 import { VerifyModule } from './common/verify/verify.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { ArticlesModule } from './modules/articles/articles.module';
+import { QuestionsModule } from './modules/questions/questions.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { ArticlesModule } from './modules/articles/articles.module';
     PaymentModule,
     OrderModule,
     ArticlesModule,
+    QuestionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

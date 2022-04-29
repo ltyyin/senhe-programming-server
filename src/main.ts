@@ -29,7 +29,7 @@ async function bootstrap() {
 
   // 配置 swagger
   const config = new DocumentBuilder()
-    .setTitle('森和学习平台')
+    .setTitle('森和编程')
     .setDescription('前后端分离，为前端提供API接口')
     .setVersion('1.0')
     .addBearerAuth()
